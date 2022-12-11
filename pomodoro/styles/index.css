@@ -1,0 +1,145 @@
+/* Fonts */
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../assets/fonts/bebasneue-book-webfont.woff2") format("woff2");
+}
+
+/* Variables */
+
+:root {
+  --color-bg: #2b2a30;
+  --color-text: #ffffff;
+  --color-work: #9d0000;
+  --color-rest: #00aa51;
+
+  --ring-diam: 518px;
+  --ring-inner-diam: 500px;
+  --wrapper-p-inline: 2rem;
+  --wrapper-p-block: 1rem;
+  --transition: 0.75s ease-in-out;
+}
+
+/* Reset */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Layout */
+.main {
+  flex-grow: 1;
+
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  padding: var(--wrapper-p-block) var(--wrapper-p-inline);
+}
+
+.main__ring,
+.main__timer {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+.header,
+.footer {
+  padding: var(--wrapper-p-block) var(--wrapper-p-inline);
+}
+
+/* Ring */
+
+.ring svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: var(--ring-diam);
+  max-height: var(--ring-diam);
+
+  background: #000000;
+  box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  overflow: hidden;
+
+  stroke: var(--color-rest);
+}
+
+/* Timer */
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  height: 100%;
+  max-width: var(--ring-inner-diam);
+  max-height: var(--ring-inner-diam);
+
+  background: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
+  box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.timer__time-amount {
+  font-family: "Bebas Neue", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 196px;
+  line-height: 196px;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.timer__button {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button--start {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+}
+
+.button--settings::before {
+  --icon-size: 24px;
+
+  content: "";
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-image: url("../assets/images/gear.svg");
+  background-size: var(--icon-size) var(--icon-size);
+  background-position: center center;
+  transition: var(--transition);
+}
+
+.button--settings:hover::before {
+  transform: rotate(120deg);
+}
