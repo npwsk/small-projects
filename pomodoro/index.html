@@ -5,44 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro timer</title>
-    <link
+    <!-- <link
       rel="preload"
       href="./assets/fonts/bebasneue-book-webfont.woff2"
       as="font"
       type="font/woff2"
       crossorigin
-    />
-    <link rel="stylesheet" href="./styles/index.css" />
+    /> -->
   </head>
   <body>
     <header class="header"></header>
 
     <main class="main">
-      <div class="main__ring ring">
-        <svg width="518" height="518" viewBox="0 0 518 518">
-          <circle stroke-width="9" x="0" y="y" cx="259" cy="259" r="254" />
-        </svg>
-      </div>
-      <div class="main__timer timer">
-        <div class="timer__time-amount">
-          <span id="time-amount-minutes">15</span>:<span id="time-amount-seconds">00</span>
+      <div class="square-outer">
+        <div class="main__content square-inner">
+          <div class="main__ring ring">
+            <svg width="518" height="518" viewBox="0 0 518 518">
+              <circle stroke-width="9" x="0" y="y" cx="259" cy="259" r="254" />
+            </svg>
+          </div>
+          <div class="main__timer timer">
+            <div class="timer__time-amount">
+              <span id="time-amount-minutes">00</span>:<span id="time-amount-seconds">00</span>
+            </div>
+
+            <button
+              id="start-button"
+              type="button"
+              class="timer__button button--start"
+              title="Start timer"
+            >
+              Start
+            </button>
+
+            <button
+              id="settings-button"
+              type="button"
+              class="timer__button button--settings"
+              title="Open settings"
+            ></button>
+          </div>
         </div>
-
-        <button
-          id="start-button"
-          type="button"
-          class="timer__button button--start"
-          title="Start timer"
-        >
-          Start
-        </button>
-
-        <button
-          id="settings-button"
-          type="button"
-          class="timer__button button--settings"
-          title="Open settings"
-        ></button>
       </div>
     </main>
 

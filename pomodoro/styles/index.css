@@ -41,12 +41,13 @@ body {
 /* Layout */
 .main {
   flex-grow: 1;
+  padding: var(--wrapper-p-block) var(--wrapper-p-inline);
+}
 
+.main__content {
   display: grid;
   align-items: center;
   justify-items: center;
-
-  padding: var(--wrapper-p-block) var(--wrapper-p-inline);
 }
 
 .main__ring,
@@ -58,6 +59,29 @@ body {
 .header,
 .footer {
   padding: var(--wrapper-p-block) var(--wrapper-p-inline);
+}
+
+/* Square block with fixed aspect ratio */
+
+.square-outer {
+  position: relative;
+  max-width: var(--ring-diam);
+  margin: 0 auto;
+}
+
+.square-outer::before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: calc((1 / 1) * 100%);
+}
+
+.square-outer .square-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 /* Ring */
@@ -85,10 +109,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 32px;
-  width: 100%;
-  height: 100%;
-  max-width: var(--ring-inner-diam);
-  max-height: var(--ring-inner-diam);
+  width: calc(100% - var(--ring-diam) + var(--ring-inner-diam));
+  height: calc(100% - var(--ring-diam) + var(--ring-inner-diam));
 
   background: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
   box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
